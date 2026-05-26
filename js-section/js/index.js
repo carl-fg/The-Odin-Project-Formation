@@ -47,35 +47,62 @@ function lastLetter(word){
 // const wds = "Banane";
 // lastLetter(wds);
 
-// FONCTION PIERRE PAPIER CISEAUX
 
+
+// FONCTION PIERRE PAPIER CISEAUX
 const choices = ["pierre", "papier", "ciseaux"];
 
+// CHOIX DE L'ORDINATEUR
 function getComputerChoice(items){
 
     let botChoice = items[Math.floor(Math.random() * items.length)];
-    console.log(`L'ordinateur fait ${botChoice}.`)
+    console.log(`L'ordinateur a choisi ${botChoice}.`)
+
     return botChoice;
 }
 
-function getHumanChoice(){
+const computer = getComputerChoice(choices);
 
-    let humanChoice = prompt("Choisissez entre 'pierre', 'papier' ou 'ciseaux'.");
+// CHOIX DU JOUEUR
+function getHumanChoice(items){
 
-    if (humanChoice == "pierre"){
-        console.log("Vous avez choisi pierre.");
-        
-    } else if (humanChoice == "papier"){
-        console.log("Vous avez choisi papier.");
-        
-    } else if (humanChoice == "ciseaux"){
-        console.log("Vous avez choisi ciseaux.");
+    alert("Pour rappel, 1 = Pierre, 2 = Papier, 3 = Ciseaux");
+    let humanChoice = Number(prompt("Choisissez ce que vous voulez jouer (1, 2 ou 3)")); // La fonction Number permet de transformer le prompt (str) en int
+
+    if (humanChoice >= 1 && humanChoice <= items.length){
+
+        const valeur = items[humanChoice - 1]; // -1 car l'index commence à 0
+        console.log("Tu as choisi :", valeur);
+
+        return valeur;
         
     } else {
-        console.log("Votre choix n'a pas de correspondance. Vérifiez l'orthographe.");
+
+        console.log("Choix invalide.");
+
+        return null;
         
     }
+
 }
 
-getComputerChoice(choices)
-getHumanChoice()
+const human = getHumanChoice(choices);
+
+// CREATION DU JEU
+if (human === computer){
+
+    console.log("Égalité !");
+    
+} else if (
+    (human === "pierre" && computer === "ciseaux") ||
+    (human === "papier" && computer === "pierre") ||
+    (human === "ciseaux" && computer === "papier")
+){
+
+    console.log("Tu as gagné !");
+    
+} else {
+
+    console.log("L'ordinateur a gagné !");
+    
+}
