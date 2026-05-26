@@ -10,5 +10,157 @@
 /* BODY */
 
 body{
-    padding: 5rem;
+    height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    justify-content: space-between;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculatrice{
+    gap: 3rem;
+    width: 40vw;
+    height: 90vh;
+    display: flex;
+    padding: 2rem;
+    align-items: center;
+    border-radius: 40px;
+    flex-direction: column;
+    background-color: #394764;
+}
+
+.affichage{
+    width: 90%;
+    padding: .5rem;
+    border: none;
+    height: 10rem;
+    outline: none;
+    font-size: 2em;
+    color: #f9f9f9;
+    border-radius: 20px;
+    background-color: #182033;
+}
+
+.parent_container{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.parent {
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.div4{
+    grid-row-start: 2;
+    grid-column-start: 1;
+}
+
+.div5{
+    grid-row-start: 2;
+    grid-column-start: 2;
+}
+
+.div6{
+    grid-row-start: 2;
+    grid-column-start: 3;
+}
+
+.div7{
+    grid-row-start: 3;
+    grid-column-start: 1;
+}
+
+.div8{
+    grid-row-start: 3;
+    grid-column-start: 2;
+}
+
+.div9{
+    grid-row-start: 3;
+    grid-column-start: 3;
+}
+
+.div10{
+    grid-row-start: 4;
+    grid-column-start: 1;
+}
+
+.div11{
+    grid-row-start: 4;
+    grid-column-start: 2;
+}
+
+.div12{
+    grid-row-start: 4;
+    grid-column-start: 3;
+}
+
+.div13{
+    grid-row-start: 4;
+    grid-column-start: 4;
+}
+
+.div14{
+    grid-row-start: 3;
+    grid-column-start: 4;
+}
+
+.div15{
+    grid-row-start: 2;
+    grid-column-start: 4;
+}
+
+.div16{
+    grid-row-start: 1;
+    grid-column-start: 4;
+}
+
+.div17{
+    grid-row-start: 5;
+    grid-column-start: 2;
+}
+
+.div18{
+    grid-row-start: 5;
+    grid-column-start: 3;
+}
+      
+.div{
+    display: flex;
+    font-size: 2em;
+    font-weight: 900;
+    align-items: center;
+    border-radius: 20px;
+    justify-content: center;
+    background-color: #eae3db;
+}
+
+.div:hover{
+    cursor: pointer;
+}
+
+.equal{
+    color: #f9f9f9;
+    background-color: #d13f30;
+}
+
+.reset, .delete{
+    color: #f9f9f9;
+    text-transform: uppercase;
+    background-color: #637198;
 }
