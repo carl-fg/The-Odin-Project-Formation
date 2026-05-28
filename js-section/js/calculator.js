@@ -1,4 +1,4 @@
-// alert("Faisant The Odin Project dans le but de me faire un rappel des notions basiques du développement web et étant la section JS, le design n'a pas d'importance sur ce projet. Ce n'est qu'une V1 est une deuxième version sera proposée ultérieurement.");
+alert("Faisant The Odin Project dans le but de me faire un rappel des notions basiques du développement web et étant la section JS, le design n'a pas d'importance sur ce projet. Ce n'est qu'une V1 et une deuxième version sera proposée ultérieurement.");
 
 const display = document.querySelector(".affichage");
 
@@ -20,6 +20,8 @@ const plus = document.querySelector(".div15");
 const minus = document.querySelector(".div14");
 const multipl = document.querySelector(".div13");
 const divid = document.querySelector(".div12");
+const point = document.querySelector(".div10");
+const equal = document.querySelector(".equal");
 
 let currentInput = "";
 
@@ -118,8 +120,36 @@ multipl.addEventListener("click", () => {
     updateDisplay(currentInput);
 });
 
+point.addEventListener("click", () => {
+
+    if (!currentInput.endsWith(".") && !currentInput.endsWith("+") && !currentInput.endsWith("-") && !currentInput.endsWith("/") && !currentInput.endsWith("x")){ // Vérifie que le point ne s'ajoute pas derrière un point ou un opérateur.
+
+        currentInput += ".";
+        updateDisplay(currentInput);
+    }
+});
+
 divid.addEventListener("click", () => {
 
     currentInput += "/";
     updateDisplay(currentInput);
+});
+
+equal.addEventListener("click", () => {
+
+    if (currentInput === "") return;
+
+    const expression = currentInput.replace(/x/g, "*"); // Remplace les "x" par des "*" pour que l'évaluation fonctionne correctement.
+
+    try {
+
+        const result = eval(expression);
+        currentInput = String(result);
+        updateDisplay(currentInput);
+
+    } catch (error) {
+
+        updateDisplay("Erreur");
+        currentInput = "";
+    }
 });
